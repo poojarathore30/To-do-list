@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            To do list 
-        </title>
-        <meta charset="utf-8"> 
-    </head>
-    <body>
-        <h1>Its a <%=KindOfDay %></h1>
-    </body>
-</html>
+    <!-- to apply header and footer to every page just include these tags of ejs -->
+    <%- include('header'); -%>
+    <div class="box" id="heading">
+        <h1><%=ListTitle%></h1>
+    </div>
+    <div class="box">
+
+        <% for(var i=0;i<=newitem.length;i++){ %>
+        <div class="item">
+            <input type="checkbox">
+            <p> <%=newitem[i]%></p>
+        </div>
+        <% }%>
+
+        <form action="/" method="POST" class="item">
+            <input autocomplete="off" type="text" placeholder="New task " id="i" name="NewItem">
+            <button type="submit" name="button" value="<%=ListTitle%>">+</button>
+        </form>
+
+    </div>
+    <!-- to apply header and footer to every page just include these tags of ejs -->
+    <%- include('footer'); -%>
